@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { connectWebSocket, sendMessage, disconnectWebSocket} from '../utils/websocketforadmin.js'
+import { connectWebSocket, sendMessage, disconnectWebSocket} from '../utils/websocket.js'
 import L from 'leaflet';
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';

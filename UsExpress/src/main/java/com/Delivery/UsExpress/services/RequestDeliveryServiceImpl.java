@@ -3,6 +3,8 @@
  */
 package com.Delivery.UsExpress.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,12 @@ public class RequestDeliveryServiceImpl implements RequestDeliveryService{
 	public RequestDelivery save(RequestDelivery reqDeli) {
 		// TODO Auto-generated method stub
 		return reqDeliRepo.save(reqDeli);
+	}
+
+	@Override
+	public List<RequestDelivery> getAll() {
+		// TODO Auto-generated method stub
+		return reqDeliRepo.findAll();
 	}
 
 }

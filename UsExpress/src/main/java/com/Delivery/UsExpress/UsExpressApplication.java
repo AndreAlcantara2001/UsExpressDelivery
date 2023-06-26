@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
+
 public class UsExpressApplication {
 
 	public static void main(String[] args) {
@@ -15,13 +16,12 @@ public class UsExpressApplication {
 	}
 
 }
-
 @Configuration
 class WebMvcConfig implements WebMvcConfigurer{
 	
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedMethods(CorsConfiguration.ALL).allowedOrigins("http://localhost:8080");//change url of frontend
+		registry.addMapping("/**").allowedMethods(CorsConfiguration.ALL).allowedOrigins("http://localhost:8080");//frontend url
 	}
 
 }

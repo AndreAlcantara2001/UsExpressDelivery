@@ -3,6 +3,8 @@
  */
 package com.Delivery.UsExpress.services;
 
+import java.util.List;
+
 import com.Delivery.UsExpress.entites.RequestDelivery;
 
 /**
@@ -12,5 +14,6 @@ import com.Delivery.UsExpress.entites.RequestDelivery;
 public interface RequestDeliveryService {
 	
 	public RequestDelivery save(RequestDelivery reqDeli);
+	public List<RequestDelivery> getAll();
 
 }

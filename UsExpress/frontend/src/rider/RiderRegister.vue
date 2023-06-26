@@ -19,8 +19,8 @@ import api from '../utils/api.js'
   export default {
     data() {
       return {
+        riderId: '',
         rider:{
-        id: '',
         name: '',
         latitude: '',
         longitude: ''
@@ -31,12 +31,14 @@ import api from '../utils/api.js'
       async registerRider() {
 
         //send to backend
-        const respRider = await api.save("rider/add",this.rider);
+        const respRider = await api.save("rider/save",this.rider);
         const respData = await respRider.json();
         if(respData){
             console.log(respData);
             console.log("Rider id : ",respData.id);
         }
+
+        this.riderId = respData.id;
 
         console.log('Rider registered:', {
           riderId: this.rider.id,

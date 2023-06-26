@@ -42,12 +42,17 @@ public class Rider {
 	private String password;
 	private String phoneNumber;
 	private String address;
+	
 	private double latitude;
 	private double longitude;
+	
 	private Status status;
+	
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "rider")
 	private List<ConfirmDelivery> confirmDeliveryList;
+	
+
 
 }
