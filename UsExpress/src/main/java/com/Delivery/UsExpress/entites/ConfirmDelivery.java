@@ -41,8 +41,11 @@ public class ConfirmDelivery {
 	private RequestDelivery requestDelivery;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "location_id", referencedColumnName = "locationId")
-	private Location location;
+	@JoinColumn(name = "rider_id", referencedColumnName = "id")
+	private Rider rider;
+
+/* 	riderId = one or more CDID (rider onetomany ConfirmDelivery)
+	many CDID = one riderId			(ConfirmDelivery many to one rider) */
 
 	
 }

@@ -42,10 +42,6 @@ public class Location {
 	private double latitude;
 	private double longitude;
 	
-
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "rider_id", referencedColumnName = "riderId")
-	private Rider rider;
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "location")

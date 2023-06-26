@@ -35,16 +35,19 @@ public class Rider {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int riderId;
+	private int id;
 	
 	private String name;
 	private String email;
 	private String password;
 	private String phoneNumber;
 	private String address;
+	private double latitude;
+	private double longitude;
+	private Status status;
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER,mappedBy = "rider")
-	private List<Location> riderLocation;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "rider")
+	private List<ConfirmDelivery> confirmDeliveryList;
 
 }
