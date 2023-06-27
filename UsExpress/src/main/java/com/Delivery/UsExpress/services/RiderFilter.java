@@ -23,7 +23,9 @@ public class RiderFilter {
         
         for (Rider rider : riders) {
             double distance = findDistance(pickupAddress.getLatitude(),pickupAddress.getLongitude(),rider.getLatitude(),rider.getLongitude());
-            if (distance <= 3) {
+            int roundedDistance = (int) Math.round(distance);
+            System.out.println(roundedDistance);
+            if (roundedDistance > 3) {
                 filteredRiders.add(rider);
             }
         }

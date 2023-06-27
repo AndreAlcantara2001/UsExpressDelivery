@@ -6,7 +6,7 @@
 
             <l-circle :lat-lng="circle.center" :radius="circle.radius" :color="circle.color" />
             <l-marker :lat-lng="circle.center"></l-marker>
-            <l-marker v-for="(marker, index) in markers" :key="index" :lat-lng="marker" ref="markerRef">
+            <l-marker v-for="(marker, index) in markers" :key="index" :lat-lng="marker"  :icon="markerIcon" >
             </l-marker>
         </l-map>
 
@@ -25,6 +25,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import { LMap, LTileLayer, LCircle, LMarker } from 'vue2-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 export default {
     name: 'NearbyRiders',
@@ -50,6 +52,10 @@ export default {
 
             },
             markers: [],
+            markerIcon: L.icon({
+                iconUrl: require('@/assets/riderbikeicon.png'),
+                iconSize: [50, 50],
+            }),
 
         };
     },
@@ -79,3 +85,4 @@ export default {
     },
 };
 </script>
+
