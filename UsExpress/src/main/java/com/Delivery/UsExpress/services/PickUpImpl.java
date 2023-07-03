@@ -48,6 +48,12 @@ public class PickUpImpl implements PickUpAdressService{
 			return "Pickup Address " + id + " is Deleted";
 		}
 	}
+
+	@Override
+	public PickUpAddress getById(int id) {
+		// TODO Auto-generated method stub
+		return pickupRepo.findById(id).orElse(null);
+	}
 	
 
 }

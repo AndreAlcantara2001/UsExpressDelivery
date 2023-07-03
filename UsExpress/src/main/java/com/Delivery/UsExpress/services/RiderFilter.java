@@ -3,6 +3,7 @@
  */
 package com.Delivery.UsExpress.services;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,16 @@ public class RiderFilter {
         
         for (Rider rider : riders) {
             double distance = findDistance(pickupAddress.getLatitude(),pickupAddress.getLongitude(),rider.getLatitude(),rider.getLongitude());
-            int roundedDistance = (int) Math.round(distance);
-            System.out.println(roundedDistance);
-            if (roundedDistance > 3) {
+            DecimalFormat df = new DecimalFormat("#.##");
+            String formattedDistance = df.format(distance);
+            
+            double distanceValue = Double.parseDouble(formattedDistance);
+            
+            double distanceRange = 3.00;
+            
+            if (distanceValue <= distanceRange) {
+            	System.out.println("Rider id: "+rider.getId()+" is added. Distance : "+distanceValue);
+
                 filteredRiders.add(rider);
             }
         }

@@ -47,11 +47,17 @@ public class RiderController {
 	
 	@PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<Rider> save(@RequestBody Rider rider){
-		Rider saveRider = riderService.saveRider(rider);
+		Rider saveRider = riderService.save(rider);
 		if(saveRider.equals(null)) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}else {
 			return new ResponseEntity<Rider>(saveRider,HttpStatus.ACCEPTED);
 		}
+	}
+	
+	@PostMapping(value = "/offline-status", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void setStatusOffline(@RequestBody Rider rider) {
+		riderService.updateStatusOffline(rider);
+		System.out.println("Offline rider"+rider.getId());
 	}
 }

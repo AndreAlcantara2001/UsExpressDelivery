@@ -13,13 +13,15 @@ import com.Delivery.UsExpress.entites.Rider;
  */
 public interface RiderService {
 	
-	public void update(Rider rider);
+	public void updateLocation(Rider rider);
 
 	public Rider getById(int id);
 
 	public String deleteRider(Rider rider);
 	
-	public Rider saveRider(Rider rider);
+	public Rider save(Rider rider);
 
 	public List<Rider> getAll();
+	
+	public void updateStatusOffline(Rider rider);
 }

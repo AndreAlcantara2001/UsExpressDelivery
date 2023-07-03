@@ -42,11 +42,11 @@ public class RequestDelivery {
 	private double distance;
 	private double cost;
 	
-	@OneToOne(fetch =  FetchType.EAGER)
+	@OneToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "pickupaddess_id" ,referencedColumnName = "pickUpAddressId")
 	private PickUpAddress pickupaddress;
 	
-	@OneToOne(fetch =  FetchType.EAGER)
+	@OneToOne(fetch =  FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "destinationaddress_id" ,referencedColumnName = "destinationAddressId")
 	private DestinationAddress destinationaddress;
 	

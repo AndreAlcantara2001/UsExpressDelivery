@@ -13,6 +13,7 @@ import com.Delivery.UsExpress.entites.RequestDelivery;
  */
 public interface RequestDeliveryService {
 	
+	public RequestDelivery getById(int id);
 	public RequestDelivery save(RequestDelivery reqDeli);
 	public List<RequestDelivery> getAll();
 

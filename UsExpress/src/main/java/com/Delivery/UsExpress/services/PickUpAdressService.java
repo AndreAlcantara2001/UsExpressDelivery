@@ -17,5 +17,6 @@ public interface PickUpAdressService {
 	public PickUpAddress save(PickUpAddress pickupaddress);
 	public List<PickUpAddress> getAll();
 	public String delete(int id);
-
+	public PickUpAddress getById(int id);
+	
 }

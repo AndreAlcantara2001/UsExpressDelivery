@@ -17,20 +17,19 @@ import com.Delivery.UsExpress.repositories.RiderRepo;
  */
 
 @Service
-public class RiderServiceImpl implements RiderService{
-	
+public class RiderServiceImpl implements RiderService {
+
 	@Autowired
 	RiderRepo riderRepo;
 
 	@Override
-	public void update(Rider rider) {
+	public void updateLocation(Rider rider) {
 		// TODO Auto-generated method stub
-		Rider updateRider = riderRepo.findById(rider.getId()).orElse(null);
-		updateRider.setName(rider.getName());
+		Rider updateRider = getById(rider.getId());
 		updateRider.setStatus(rider.getStatus());
 		updateRider.setLatitude(rider.getLatitude());
 		updateRider.setLongitude(rider.getLongitude());
-		riderRepo.save(updateRider);
+		save(updateRider);
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class RiderServiceImpl implements RiderService{
 	}
 
 	@Override
-	public Rider saveRider(Rider rider) {
+	public Rider save(Rider rider) {
 		// TODO Auto-generated method stub
 		return riderRepo.save(rider);
 	}
@@ -62,7 +61,15 @@ public class RiderServiceImpl implements RiderService{
 		// TODO Auto-generated method stub
 		return riderRepo.findAll();
 	}
-	
-	
+
+	@Override
+	public void updateStatusOffline(Rider rider) {
+		// TODO Auto-generated method stub
+		Rider updateRider = getById(rider.getId());
+		
+		updateRider.setStatus(rider.getStatus());
+		
+		save(updateRider);
+	}
 
 }

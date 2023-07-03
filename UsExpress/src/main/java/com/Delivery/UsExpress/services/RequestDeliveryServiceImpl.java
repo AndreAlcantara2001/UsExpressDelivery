@@ -34,4 +34,10 @@ public class RequestDeliveryServiceImpl implements RequestDeliveryService{
 		return reqDeliRepo.findAll();
 	}
 
+	@Override
+	public RequestDelivery getById(int id) {
+		// TODO Auto-generated method stub
+		return reqDeliRepo.findById(id).orElse(null);
+	}
+
 }
